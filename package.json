@@ -1,0 +1,47 @@
+{
+    "name": "cap",
+    "version": "0.0.1",
+    "description": "cap server",
+    "main": "app.js",
+    "scripts": {
+        "test": "NODE_ENV=test ./node_modules/mocha/bin/mocha test/**/*",
+        "start": "node app.js",
+        "restartdb": "sh restartdb.sh",
+        "dev": "NODE_ENV=dev YOG_ENV=dev ./node_modules/.bin/nodemon --watch app app.js",
+        "coverage": "NODE_ENV=test node_modules/.bin/istanbul cover node_modules/.bin/_mocha -- test/**/*"
+    },
+    "engines": {
+        "node": ">=4.0.0"
+    },
+    "dependencies": {
+        "ajv": "^4.0.1",
+        "baidubce-sdk": "0.0.23",
+        "co": "^4.6.0",
+        "jsonwebtoken": "^6.2.0",
+        "koa": "^1.2.0",
+        "koa-body": "^1.4.0",
+        "koa-compose": "^2.4.0",
+        "koa-router": "^5.4.0",
+        "koa-static": "^2.0.0",
+        "koa-yog-log": "^0.1.1",
+        "lodash": "^4.11.1",
+        "mysql": "^2.10.2",
+        "node-mysql-promise2": "^0.1.1",
+        "queryize": "^1.1.1",
+        "thunkify": "^2.1.2",
+        "xmlparser": "^0.1.0",
+        "yog-ral": "^0.9.0",
+        "mongoose": "~4.5.1",
+        "randomcolor": "~0.4.4"
+    },
+    "devDependencies": {
+        "expect": "^1.16.0",
+        "istanbul": "^0.4.3",
+        "mocha": "^2.4.5",
+        "nodemon": "^1.9.1"
+    },
+    "author": "zoumiaojiang@gmail.com",
+    "repository": "empty",
+    "license": "BSD",
+    "readme": "README"
+}

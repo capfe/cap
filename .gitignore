@@ -1,0 +1,8 @@
+node_modules
+.DS_Store
+._.DS_Store
+log
+tmp
+views
+data
+*.tgz
