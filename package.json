@@ -32,7 +32,8 @@
         "xmlparser": "^0.1.0",
         "yog-ral": "^0.9.0",
         "mongoose": "~4.5.1",
-        "randomcolor": "~0.4.4"
+        "randomcolor": "~0.4.4",
+        "fs-extra": "~0.30.0"
     },
     "devDependencies": {
         "expect": "^1.16.0",

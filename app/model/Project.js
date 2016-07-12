@@ -12,8 +12,6 @@ class Project {
 
     constructor (models) {
         this.ProjectModel = models.ProjectModel;
-        this.StaticModel = models.StaticModel;
-        this.FoldModel = models.FoldModel;
     }
 
     fetchProject (id) {
@@ -46,23 +44,6 @@ class Project {
         });
     }
 
-    fetchFiles () {
-        const Model  = this.StaticModel;
-
-        return co(function* () {
-            const result = yield Model.find().exec();
-            return result;
-        });
-    }
-
-    fetchFolds () {
-        const Model  = this.FoldModel;
-
-        return co(function* () {
-            const result = yield Model.find().exec();
-            return result;
-        });
-    }
 }
 
 Project.getInstance = (models) => {

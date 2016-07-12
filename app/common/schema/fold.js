@@ -12,7 +12,10 @@ const fields = {
     name: String,
     comments: String,
     open: Boolean,
-    parent: String
+    parent: String,
+    statics: Object,
+    level: Number,
+    path: String
 };
 
 const foldSchema = new Schema(fields);

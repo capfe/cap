@@ -13,7 +13,9 @@ const fields = {
     size: String,
     type: String,
     comments: String,
-    parent: String
+    parent: String,
+    level: Number,
+    path: String
 };
 
 const staticSchema = new Schema(fields);
