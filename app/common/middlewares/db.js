@@ -1,6 +1,6 @@
 /**
  * @file 数据库连接管理中间件
- * @author mj(zoumiaojiang@gnail.com)
+ * @author mj(zoumiaojiang@gmail.com)
  */
 
 'use strict';

@@ -1,6 +1,6 @@
 /**
  * @file project schema
- * @author mj(zoumiaojiang@baidu.com)
+ * @author mj(zoumiaojiang@gmail.com)
  */
 
 'use strict';
@@ -16,6 +16,8 @@ const fields = {
     name: String,
     show: Boolean,
     pixel: Number,
+
+    // not for db
     layers: Array,
     keyframes: Array
 };

@@ -1,6 +1,6 @@
 /**
  * @file project相关
- * @author mj(zoumiaojiang@baidu.com)
+ * @author mj(zoumiaojiang@gmail.com)
  */
 
 'use strict';
@@ -12,14 +12,18 @@ class Project {
 
     constructor (models) {
         this.ProjectModel = models.ProjectModel;
+        this.LayerModel = models.LayerModel;
     }
 
     fetchProject (id) {
 
         const Model = this.ProjectModel;
+        const LModel = this.LayerModel;
 
         return co(function* () {
             const result = yield Model.findOne({ _id: id }).exec();
+            const layers = yield LModel.find({ projectid: id }).exec();
+            result.layers = layers;
             return result;
         });
     }

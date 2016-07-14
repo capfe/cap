@@ -1,6 +1,6 @@
 /**
  * @file project schema
- * @author mj(zoumiaojiang@baidu.com)
+ * @author mj(zoumiaojiang@gmail.com)
  */
 
 'use strict';
@@ -15,7 +15,7 @@ const fields = {
     parent: String,
     statics: Object,
     level: Number,
-    path: String
+    abspath: String
 };
 
 const foldSchema = new Schema(fields);

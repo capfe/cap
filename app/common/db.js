@@ -1,6 +1,6 @@
 /**
  * @file mongodb连接
- * @author mj(zoumiaojiang@baidu.com)
+ * @author mj(zoumiaojiang@gmail.com)
  */
 
 
@@ -24,9 +24,11 @@ const connection = mongoose.createConnection(connectPath, options);
 const ProjectModel = connection.model('project', require('./schema/project'));
 const StaticModel = connection.model('file', require('./schema/file'));
 const FoldModel = connection.model('fold', require('./schema/fold'));
+const LayerModel = connection.model('layer', require('./schema/layer'));
 
 module.exports = {
     ProjectModel,
     StaticModel,
-    FoldModel
+    FoldModel,
+    LayerModel
 };

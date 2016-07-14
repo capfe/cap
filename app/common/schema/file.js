@@ -1,6 +1,6 @@
 /**
  * @file static schema
- * @author mj(zoumiaojiang@baidu.com)
+ * @author mj(zoumiaojiang@gmail.com)
  */
 
 'use strict';
@@ -15,7 +15,7 @@ const fields = {
     comments: String,
     parent: String,
     level: Number,
-    path: String
+    abspath: String
 };
 
 const staticSchema = new Schema(fields);

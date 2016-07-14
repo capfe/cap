@@ -1,6 +1,6 @@
 /**
  * @file 路由配置
- * @author mj(zoumiaojiang@baidu.com)
+ * @author mj(zoumiaojiang@gmail.com)
  */
 
 'use strict';
@@ -9,8 +9,8 @@ const compose = require('koa-compose');
 
 const routers = [
     require('./action/project'),
-    require('./action/layers'),
-    require('./action/keyframes'),
+    require('./action/layer'),
+    require('./action/keyframe'),
     require('./action/static')
 ];
 
