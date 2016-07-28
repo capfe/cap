@@ -16,10 +16,10 @@ const fields = {
     name: String,
     show: Boolean,
     pixel: Number,
-
+    focus: Boolean,
     // not for db
-    layers: Array,
-    keyframes: Array
+    // layers: Array,
+    // keyframes: Array
 };
 
 const projectSchema = new Schema(fields);

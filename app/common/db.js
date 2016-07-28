@@ -25,10 +25,14 @@ const ProjectModel = connection.model('project', require('./schema/project'));
 const StaticModel = connection.model('file', require('./schema/file'));
 const FoldModel = connection.model('fold', require('./schema/fold'));
 const LayerModel = connection.model('layer', require('./schema/layer'));
+const KeyframeModel = connection.model('keyframe', require('./schema/keyframe'));
+const KeyframeLayerModel = connection.model('kflayer', require('./schema/keyframeLayer'));
 
 module.exports = {
     ProjectModel,
     StaticModel,
     FoldModel,
-    LayerModel
+    LayerModel,
+    KeyframeModel,
+    KeyframeLayerModel
 };

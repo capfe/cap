@@ -11,7 +11,11 @@ const Schema = mongoose.Schema;
 const fields = {
     name: String,
     tag: String,
-    status: Object,
+    statusLayer: Boolean,
+    statusProp: Boolean,
+    statusView: Boolean,
+    statusDview: Boolean,
+    statusLock: Boolean,
     parentid: String,
     projectid: String,
     zIndex: Number,

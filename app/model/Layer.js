@@ -37,6 +37,22 @@ class Layer {
         });
     }
 
+    update (params) {
+        const Model = this.Model;
+        return co(function* () {
+            yield Model.update(
+                {
+                    _id: params.layerid
+                },
+                {
+                    $set: {
+                        [params.field]: params.value
+                    }
+                }
+            ).exec();
+         });
+    }
+
 }
 
 Layer.getInstance = function (models) {

@@ -12,19 +12,40 @@ class Project {
 
     constructor (models) {
         this.ProjectModel = models.ProjectModel;
-        this.LayerModel = models.LayerModel;
     }
 
     fetchProject (id) {
 
         const Model = this.ProjectModel;
-        const LModel = this.LayerModel;
-
         return co(function* () {
             const result = yield Model.findOne({ _id: id }).exec();
-            const layers = yield LModel.find({ projectid: id }).exec();
-            result.layers = layers;
             return result;
+        });
+    }
+
+    changeFocusStatus (id) {
+        const Model = this.ProjectModel;
+        return co(function* () {
+            yield Model.update(
+                {
+                    focus: true
+                },
+                {
+                    $set: {
+                        focus: false
+                    }
+                }
+            ).exec();
+            yield Model.update(
+                {
+                    _id: id
+                },
+                {
+                    $set: {
+                        focus: true
+                    }
+                }
+            ).exec();
         });
     }
 
@@ -38,13 +59,32 @@ class Project {
                 tabs.push({
                     id: project.id,
                     name: project.name,
-                    focus: 0,
+                    focus: project.focus,
                     show: project.show
                 });
             }
-            tabs[0].focus = 1;
 
             return tabs;
+        });
+    }
+
+    update (params) {
+        const Model = this.ProjectModel;
+        const id = params.id;
+        const field = params.field;
+        const value = params.value;
+
+        return co(function* () {
+            yield Model.update(
+                {
+                    _id: id
+                },
+                {
+                    $set: {
+                        [field]: value
+                    }
+                }
+            );
         });
     }
 

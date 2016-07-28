@@ -20,14 +20,10 @@ router.post('/add', function* () {
     const sourceid = params.sourceid;
     const projectid = params.projectid;
     const parentid = '';
-    const tag = randomColor(/*{ luminosity: 'light' }*/);
-    const status = {
-        view: true,
-        dview: false,
-        lock: false,
-        layer: false,
-        props: false
-    };
+    const tag = randomColor({
+        luminosity: 'random',
+        hue: 'random'
+    });
     const position = {
         x: { value: 0, fx: 'linear' },
         y: { value: 0, fx: 'linear' }
@@ -74,14 +70,18 @@ router.post('/add', function* () {
         parentid,
         tag,
         name,
-        status,
         position,
         scale,
         rotate,
         opacity,
         zIndex,
         skew,
-        css
+        css,
+        statusLayer: false,
+        statusView: true,
+        statusProp: false,
+        statusDview: false,
+        statusLock: false
     });
 
     const data = yield model.fetchLayers(projectid);
@@ -97,6 +97,19 @@ router.post('/add', function* () {
             status: 0,
             statusInfo: ''
         };
+    }
+});
+
+
+router.post('/update', function* () {
+    const dbModels = yield this.getDBModels();
+    const model = Model.getInstance(dbModels);
+    const params = this.request.body;
+
+    yield model.update(params);
+
+    this.body = {
+        status: 0
     }
 });
 
