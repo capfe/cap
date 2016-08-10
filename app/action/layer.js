@@ -24,6 +24,12 @@ router.post('/add', function* () {
         luminosity: 'random',
         hue: 'random'
     });
+
+    const size = {
+        x: { value: 100, fx: 'linear' },
+        y: { value: 100, fx: 'linear' }
+    };
+
     const position = {
         x: { value: 0, fx: 'linear' },
         y: { value: 0, fx: 'linear' }
@@ -31,7 +37,8 @@ router.post('/add', function* () {
 
     const rotate = {
         x: { value: 0, fx: 'linear' },
-        y: { value: 0, fx: 'linear' }
+        y: { value: 0, fx: 'linear' },
+        z: { value: 0, fx: 'linear' }
     };
 
     const scale = {
@@ -76,6 +83,7 @@ router.post('/add', function* () {
         opacity,
         zIndex,
         skew,
+        size,
         css,
         statusLayer: false,
         statusView: true,
