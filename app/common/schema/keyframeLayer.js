@@ -17,6 +17,7 @@ const fields = {
     rotate: Object,
     skew: Object,
     zIndex: Number,
+    size: Object,
     css: Object
 };
 

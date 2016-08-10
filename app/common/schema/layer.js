@@ -25,6 +25,7 @@ const fields = {
     rotate: Object,
     scale: Object,
     opacity: Object,
+    size: Object,
     css: Object
 };
 
