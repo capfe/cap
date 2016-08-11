@@ -59,8 +59,6 @@ router.post('/add', function* () {
         }
     }
 
-    console.log(flag);
-
     if (!flag) {
         if (('' + type) === 'false') {
             obj = {
@@ -97,7 +95,6 @@ router.post('/add', function* () {
         }
     }
 
-    console.log(prop, obj);
     // 先判断是不是在index下含有关键帧, 没有就新增一项
     if (!keyframe) {
         const newKeyframe = yield keyframeModel.add({ index, projectid });
@@ -134,8 +131,10 @@ router.post('/add', function* () {
                     fx
                 };
             }
+
             yield keyframeLayerModel.update({
                 kfid: keyframe._id,
+                layerid: layerid,
                 props: {
                     [prop]: tmpProp
                 }

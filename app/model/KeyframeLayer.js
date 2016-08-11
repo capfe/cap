@@ -32,10 +32,12 @@ class KeyframeLayer {
     update (params) {
         const Model = this.Model;
         const kfid = params.kfid;
+        const layerid = params.layerid;
         return co(function* () {
             Model.update(
                 {
-                    kfid
+                    kfid,
+                    layerid
                 },
                 {
                     $set: params.props
@@ -51,4 +53,3 @@ KeyframeLayer.getInstance = function (models) {
 };
 
 module.exports = KeyframeLayer;
-
