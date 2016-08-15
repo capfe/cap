@@ -53,7 +53,17 @@ router.post('/add', function* () {
         y: { value: 1, fx: 'linear' }
     };
 
-    const css = {};
+    const origin = {
+        x: { value: 1, fx: 'linear' },
+        y: { value: 1, fx: 'linear' }
+    };
+
+    const css = {
+        borderWidth: { value: 0, fx: 'linear'},
+        borderStyle: { value: 'solid', fx: 'linear'},
+        borderColor: { value: '#000', fx: 'linear'},
+        borderRadius: { value: 1, fx: 'linear'}
+    };
 
     const namere = /^(.*?)(\d*?)?$/i;
     let name = '图层';
@@ -84,6 +94,7 @@ router.post('/add', function* () {
         zIndex,
         skew,
         size,
+        origin,
         css,
         statusLayer: false,
         statusView: true,
@@ -114,11 +125,39 @@ router.post('/update', function* () {
     const model = Model.getInstance(dbModels);
     const params = this.request.body;
 
-    yield model.update(params);
+    const projectid = params.projectid;
+    const layerid = params.layerid;
+    const key = params.key;
+    const fx = 'linear';
+    const value = +(params.value || 0);
+
+    const layers = yield model.fetchLayers(projectid);
+    let obj = {};
+
+    for (let layer of layers) {
+        if (layer._id.toString() === layerid) {
+            obj = layer.css;
+        }
+    }
+
+    obj[key] = {
+        fx,
+        value
+    };
+
+    yield model.update({
+        layerid: layerid,
+        props: {
+            css: obj
+        }
+    });
+
+    const data = yield model.fetchLayers(projectid);
 
     this.body = {
-        status: 0
-    }
+        status: 0,
+        data
+    };
 });
 
 

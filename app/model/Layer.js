@@ -38,19 +38,18 @@ class Layer {
     }
 
     update (params) {
+        console.log(params.props);
         const Model = this.Model;
         return co(function* () {
-            yield Model.update(
+            Model.update(
                 {
                     _id: params.layerid
                 },
                 {
-                    $set: {
-                        [params.field]: params.value
-                    }
+                    $set: params.props
                 }
             ).exec();
-         });
+        });
     }
 
 }
@@ -60,4 +59,3 @@ Layer.getInstance = function (models) {
 };
 
 module.exports = Layer;
-
