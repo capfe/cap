@@ -129,7 +129,7 @@ router.post('/update', function* () {
     const layerid = params.layerid;
     const key = params.key;
     const fx = 'linear';
-    const value = +(params.value || 0);
+    const value = (parseInt(params.value, 10) === +params.value) ? +(params.value || 0) : params.value;
 
     const layers = yield model.fetchLayers(projectid);
     let obj = {};

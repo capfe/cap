@@ -26,7 +26,7 @@ router.post('/add', function* () {
     const prop = params.prop;
     const type = params.type;
     const key = params.key;
-    const value = +(params.value || 0);
+    const value = (parseInt(params.value, 10) === +params.value) ? +(params.value || 0) : params.value;
     const fx = 'linear';
     const keyframe = yield keyframeModel.fetchKeyframe({ index, projectid });
     const keyframes = yield keyframeModel.fetchKeyframes(projectid);
@@ -126,7 +126,7 @@ router.post('/add', function* () {
                 };
             }
             else {
-                tmpProp[key] = {
+                tmpProp = {
                     value,
                     fx
                 };
