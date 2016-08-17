@@ -107,7 +107,8 @@ router.post('/add', function* () {
     else {
         // 如果确定有关键帧的话，确定是不是有这个图层的关键帧
         const keyframeLayer = yield keyframeLayerModel.fetchKeyframeLayer(layerid);
-        if (!keyframeLayer) {
+
+        if (!keyframeLayer || (keyframeLayer.kfid.toString() !== keyframe._id.toString())) {
             yield keyframeLayerModel.add({
                 layerid,
                 kfid: keyframe._id,
