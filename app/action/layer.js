@@ -62,7 +62,11 @@ router.post('/add', function* () {
         borderWidth: { value: 0, fx: 'linear'},
         borderStyle: { value: 'solid', fx: 'linear'},
         borderColor: { value: '#000', fx: 'linear'},
-        borderRadius: { value: 1, fx: 'linear'}
+        borderRadius: { value: 1, fx: 'linear'},
+        shadowX: { value: 0, fx: 'linear'},
+        shadowY: { value: 0, fx: 'linear'},
+        shadowBlur: { value: 0, fx: 'linear'},
+        shadowColor: { value: '#fff', fx: 'linear'}
     };
 
     const namere = /^(.*?)(\d*?)?$/i;
