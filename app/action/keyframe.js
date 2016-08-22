@@ -80,7 +80,7 @@ router.post('/add', function* () {
         }
     }
 
-    if (value) {
+    if (value !== undefined) {
         if (key) {
             obj[key] = {
                 value,
